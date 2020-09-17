@@ -1,11 +1,12 @@
 import React from 'react'
 
 import './App.css'
-import TextInput from './components/formComponents/textInput'
+
+import UserAddressFormContainer from './containers/UserAddressFormContainer'
 function App() {
   return (
     <div className="">
-      <TextInput />
+      <UserAddressFormContainer />
     </div>
   )
 }

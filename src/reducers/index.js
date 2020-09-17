@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import locationReducer from './location-input-reducer'
+import userData from './user-data-reducer'
 
 export default combineReducers({
-  location: locationReducer,
+  user: userData,
 })
