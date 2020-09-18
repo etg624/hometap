@@ -7,53 +7,72 @@ import { formAttributes } from './formAttributes'
 import validateUserDataForm from './validateForm'
 import SelectDropdown from '../formComponents/SelectDropdown'
 
-const UserAddressForm = ({ submitForm, httpError }) => {
+const UserAddressForm = ({ submitForm, httpError, hasSubmittedSuccessfully }) => {
   const { formData, handleFormInputChange, handleSubmit, errors } = useForm(
     submitForm,
     validateUserDataForm
   )
-  const userFormAttributes = formAttributes(formData)
-  console.log(formData)
-  const inputs = userFormAttributes.inputs.map(attrs => (
-    <div>
-      <TextInput
-        key={attrs.id}
-        onChange={handleFormInputChange}
-        inputAttributes={attrs}
-        error={errors[attrs.id]}
-      />
-    </div>
-  ))
-
+  const {
+    firstName,
+    lastName,
+    city,
+    states,
+    zip,
+    products,
+    phoneNumber,
+    email,
+    address,
+  } = formAttributes(formData)
   return (
     <form onSubmit={handleSubmit}>
-      {inputs}
-      <SelectDropdown
+      <div>
+        <TextInput
+          onChange={handleFormInputChange}
+          inputAttributes={firstName}
+          error={errors[firstName.id]}
+        />
+        <TextInput
+          onChange={handleFormInputChange}
+          inputAttributes={lastName}
+          error={errors[lastName.id]}
+        />
+      </div>
+
+      <div>
+        <TextInput onChange={handleFormInputChange} inputAttributes={phoneNumber} />
+        <TextInput
+          onChange={handleFormInputChange}
+          inputAttributes={email}
+          error={errors[email.id]}
+        />
+      </div>
+      <TextInput
         onChange={handleFormInputChange}
-        attributes={{
-          id: 'state',
-          name: 'state',
-          value: formData.state,
-          placeholder: 'Select a state',
-        }}
-        options={userFormAttributes.states}
+        inputAttributes={address}
+        error={errors[address.id]}
       />
+      <TextInput onChange={handleFormInputChange} inputAttributes={city} error={errors[city.id]} />
+      <div>
+        <SelectDropdown
+          onChange={handleFormInputChange}
+          attributes={states.attrs}
+          options={states.options}
+          error={errors[states.attrs.id]}
+        />
+        <TextInput
+          onChange={handleFormInputChange}
+          inputAttributes={zip}
+          error={errors[zip.id]}
+          limit={5}
+        />
+      </div>
       <SelectDropdown
         onChange={handleFormInputChange}
-        attributes={{
-          id: 'product',
-          name: 'product',
-          value: formData.product,
-          placeholder: 'Select a product',
-        }}
-        options={[
-          { value: 'product-a', text: 'Product A' },
-          { value: 'product-b', text: 'Product B' },
-          { value: 'product-c', text: 'Product C' },
-        ]}
+        attributes={products.attrs}
+        options={products.options}
       />
       {httpError && <div>{httpError}</div>}
-      <input type="submit" />
+      <input type="submit" disabled={!Object.keys(formData).length} />
     </form>
   )
 }

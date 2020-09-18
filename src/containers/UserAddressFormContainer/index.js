@@ -6,6 +6,7 @@ import { submitForm } from './actions'
 const mapStateToProps = ({ user }) => {
   return {
     httpError: user.error,
+    hasSubmittedSuccessfully: Object.values(user).some(value => value),
   }
 }
 

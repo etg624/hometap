@@ -1,13 +1,21 @@
 import React from 'react'
 
-const SelectDropdown = ({ options, onChange, attributes }) => {
+const SelectDropdown = ({ options, onChange, attributes, error }) => {
   return (
-    <select onChange={onChange} id={attributes.id} name={attributes.name} value={attributes.value}>
-      <option value={attributes.value ? '' : 'selected'}>{attributes.placeholder}</option>
-      {options.map(option => (
-        <option value={option.value}>{option.text}</option>
-      ))}
-    </select>
+    <div>
+      <select
+        onChange={onChange}
+        id={attributes.id}
+        name={attributes.name}
+        value={attributes.value}
+      >
+        <option value={attributes.value ? '' : 'selected'}>{attributes.placeholder}</option>
+        {options.map(option => (
+          <option value={option.value}>{option.text}</option>
+        ))}
+      </select>
+      {error && <p>{error}</p>}
+    </div>
   )
 }
 

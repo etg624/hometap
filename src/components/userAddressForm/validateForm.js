@@ -2,7 +2,6 @@ const buildRequiredErrors = (errors, formData, requiredFieldAndMessage) => {
   const field = requiredFieldAndMessage[0]
   const message = requiredFieldAndMessage[1]
   const requiredFieldValue = formData[field]
-  console.log(requiredFieldValue)
   if (!requiredFieldValue) {
     errors[field] = message
   }
@@ -10,7 +9,6 @@ const buildRequiredErrors = (errors, formData, requiredFieldAndMessage) => {
 }
 
 const validateUserDataForm = formData => {
-  console.log(formData)
   const errors = {}
   const requiredFieldsWithFormattedMessages = [
     ['firstName', 'First Name is required'],
@@ -27,11 +25,16 @@ const validateUserDataForm = formData => {
   }
 
   const { email } = formData
-  const isValidEmail = !/^\S+@\S+$/.test(email)
-  if (isValidEmail) {
+  const validEmailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+  const isValidEmail = validEmailRegex.test(email)
+
+  const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(formData.zip)
+  if (!isValidEmail && !errors['email']) {
     errors.email = 'Email must be a valid email address'
   }
-  console.log(errors)
+  if (!isValidZip && !errors['zip']) {
+    errors.zip = 'Are you sure you entered the right zip code?'
+  }
   return errors
 }
 

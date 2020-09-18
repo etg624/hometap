@@ -20,7 +20,6 @@ export default (submitCallback, validateCallback) => {
 
   useEffect(() => {
     const hasErrors = Object.keys(errors).length
-    console.log(hasErrors)
     if (!hasErrors && isSubmitting) {
       submitCallback(formData)
     }
