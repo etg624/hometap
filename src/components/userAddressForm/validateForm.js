@@ -2,6 +2,7 @@ const buildRequiredErrors = (errors, formData, requiredFieldAndMessage) => {
   const field = requiredFieldAndMessage[0]
   const message = requiredFieldAndMessage[1]
   const requiredFieldValue = formData[field]
+  console.log(requiredFieldValue)
   if (!requiredFieldValue) {
     errors[field] = message
   }
@@ -9,6 +10,7 @@ const buildRequiredErrors = (errors, formData, requiredFieldAndMessage) => {
 }
 
 const validateUserDataForm = formData => {
+  console.log(formData)
   const errors = {}
   const requiredFieldsWithFormattedMessages = [
     ['firstName', 'First Name is required'],
@@ -29,7 +31,7 @@ const validateUserDataForm = formData => {
   if (isValidEmail) {
     errors.email = 'Email must be a valid email address'
   }
-
+  console.log(errors)
   return errors
 }
 

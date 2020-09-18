@@ -12,6 +12,7 @@ const initialState = {
   city: '',
   state: '',
   zip: '',
+  product: '',
   loading: false,
   error: null,
 }
