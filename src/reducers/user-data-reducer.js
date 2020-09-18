@@ -3,6 +3,7 @@ import {
   SUBMIT_FORM_SUCCESS,
   SUBMIT_FORM_ERROR,
 } from '../containers/UserAddressFormContainer/actions'
+import { act } from 'react-dom/test-utils'
 
 const initialState = {
   firstName: '',
@@ -24,6 +25,7 @@ const locationInputReducer = (state = initialState, action) => {
         loading: true,
       }
     case SUBMIT_FORM_SUCCESS:
+      console.log(action.formData)
       return {
         ...state,
         ...action.formData,

@@ -9,8 +9,8 @@ const mapStateToProps = () => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    submitForm: ({ city, state, zip }) => {
-      dispatch(submitForm({ city, state, zip }))
+    submitForm: formData => {
+      dispatch(submitForm(formData))
     },
   }
 }

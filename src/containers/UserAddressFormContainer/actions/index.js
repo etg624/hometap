@@ -12,10 +12,11 @@ export const submitForm = ({ city, state, zip, ...rest }) => async dispatch => {
   dispatch(submitFormRequest())
   const { locationValidationBaseUrl, locationApiKey } = envVars
   const res = await fetch(
-    `${locationValidationBaseUrl}?q=${city}+${state}+${zip}&apiKey=${locationApiKey}`
+    `${locationValidationBaseUrl}&q=${city}+${state}+${zip}&apiKey=${locationApiKey}`
   )
 
   const data = await res.json()
-  submitFormSuccess({ city, state, zip, ...rest })
+
+  dispatch(submitFormSuccess({ city, state, zip, ...rest }))
   console.log(data)
 }

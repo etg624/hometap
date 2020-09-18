@@ -15,11 +15,12 @@ export default (submitCallback, validateCallback) => {
   const handleSubmit = e => {
     e.preventDefault()
     setIsSubmitting(true)
-    setErrors(validateCallback(formData))
+    validateCallback && setErrors(validateCallback(formData))
   }
 
   useEffect(() => {
     if (!Object.keys(errors).length && isSubmitting) {
+      console.log('running')
       submitCallback(formData)
     }
   }, [errors, isSubmitting])
