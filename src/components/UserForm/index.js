@@ -7,7 +7,7 @@ import { formAttributes } from './formAttributes'
 import validateUserDataForm from './validateForm'
 import SelectDropdown from '../formComponents/SelectDropdown'
 
-const UserAddressForm = ({ submitForm, httpError, hasSubmittedSuccessfully }) => {
+const UserForm = ({ submitForm, httpError, hasSubmittedSuccessfully }) => {
   const { formData, handleFormInputChange, handleSubmit, errors } = useForm(
     submitForm,
     validateUserDataForm
@@ -23,6 +23,7 @@ const UserAddressForm = ({ submitForm, httpError, hasSubmittedSuccessfully }) =>
     email,
     address,
   } = formAttributes(formData)
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -77,4 +78,4 @@ const UserAddressForm = ({ submitForm, httpError, hasSubmittedSuccessfully }) =>
   )
 }
 
-export default UserAddressForm
+export default UserForm

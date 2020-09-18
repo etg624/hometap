@@ -2,17 +2,9 @@ import {
   SUBMIT_FORM_REQUEST,
   SUBMIT_FORM_SUCCESS,
   SUBMIT_FORM_LOCATION_ERROR,
-} from '../containers/UserAddressFormContainer/actions'
+} from '../containers/UserFormContainer/actions'
 
 const initialState = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  phonNumber: '',
-  city: '',
-  state: '',
-  zip: '',
-  product: '',
   loading: false,
   error: null,
 }

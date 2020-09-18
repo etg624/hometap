@@ -11,7 +11,9 @@ const SelectDropdown = ({ options, onChange, attributes, error }) => {
       >
         <option value={attributes.value ? '' : 'selected'}>{attributes.placeholder}</option>
         {options.map(option => (
-          <option value={option.value}>{option.text}</option>
+          <option key={option.value} value={option.value}>
+            {option.text}
+          </option>
         ))}
       </select>
       {error && <p>{error}</p>}

@@ -1,13 +1,17 @@
 import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
+import UserFormContainer from './containers/UserFormContainer'
+import UserProfileContainer from './containers/UserProfileContainer'
 import './App.css'
-
-import UserAddressFormContainer from './containers/UserAddressFormContainer'
-function App() {
+const App = () => {
   return (
-    <div className="">
-      <UserAddressFormContainer />
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={UserFormContainer} />
+        <Route exact path="/user`" component={UserProfileContainer} />
+      </Switch>
+    </Router>
   )
 }
 

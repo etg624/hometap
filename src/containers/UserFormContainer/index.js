@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import UserAddressForm from '../../components/UserAddressForm'
+import UserForm from '../../components/UserForm'
 import { submitForm } from './actions'
 
 const mapStateToProps = ({ user }) => {
@@ -18,4 +18,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserAddressForm)
+export default connect(mapStateToProps, mapDispatchToProps)(UserForm)
