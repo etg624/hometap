@@ -1,7 +1,12 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
-const UserProfile = ({ user }) => {
-  return <div>{user}</div>
+const UserProfile = ({ userState }) => {
+  const history = useHistory()
+  if (!userState.hasSubmittedForm) {
+    history.push('/')
+  }
+  return <div>{userState.user.firstName}</div>
 }
 
 export default UserProfile

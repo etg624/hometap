@@ -6,12 +6,14 @@ import { formAttributes } from './formAttributes'
 
 import validateUserDataForm from './validateForm'
 import SelectDropdown from '../formComponents/SelectDropdown'
+import { useHistory } from 'react-router-dom'
 
-const UserForm = ({ submitForm, httpError, hasSubmittedSuccessfully }) => {
+const UserForm = ({ submitForm, httpError, hasSubmittedForm }) => {
   const { formData, handleFormInputChange, handleSubmit, errors } = useForm(
     submitForm,
     validateUserDataForm
   )
+  const history = useHistory()
   const {
     firstName,
     lastName,
@@ -23,7 +25,9 @@ const UserForm = ({ submitForm, httpError, hasSubmittedSuccessfully }) => {
     email,
     address,
   } = formAttributes(formData)
-
+  if (hasSubmittedForm) {
+    history.push('/user')
+  }
   return (
     <form onSubmit={handleSubmit}>
       <div>

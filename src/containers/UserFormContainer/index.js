@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import UserForm from '../../components/UserForm'
 import { submitForm } from './actions'
 
-const mapStateToProps = ({ user }) => {
+const mapStateToProps = ({ userState }) => {
   return {
-    httpError: user.error,
-    hasSubmittedSuccessfully: Object.values(user).some(value => value),
+    httpError: userState.error,
+    hasSubmittedForm: userState.hasSubmittedForm,
   }
 }
 

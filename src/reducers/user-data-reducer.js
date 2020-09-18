@@ -7,6 +7,8 @@ import {
 const initialState = {
   loading: false,
   error: null,
+  hasSubmittedForm: false,
+  user: {},
 }
 
 const locationInputReducer = (state = initialState, action) => {
@@ -19,7 +21,8 @@ const locationInputReducer = (state = initialState, action) => {
     case SUBMIT_FORM_SUCCESS:
       return {
         ...state,
-        ...action.formData,
+        user: { ...action.formData },
+        hasSubmittedForm: true,
         loading: false,
         error: null,
       }

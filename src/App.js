@@ -9,7 +9,7 @@ const App = () => {
     <Router>
       <Switch>
         <Route exact path="/" component={UserFormContainer} />
-        <Route exact path="/user`" component={UserProfileContainer} />
+        <Route exact path="/user" component={UserProfileContainer} />
       </Switch>
     </Router>
   )
