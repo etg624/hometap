@@ -28,6 +28,13 @@ export const formAttributes = formData => [
     label: 'Phone Number',
   },
   {
+    id: 'address',
+    placeholder: '123 Main St',
+    value: formData.address,
+    name: 'address',
+    label: 'Address',
+  },
+  {
     id: 'city',
     placeholder: 'i.e Los Angeles',
     value: formData.city || '',

@@ -3,8 +3,10 @@ import { connect } from 'react-redux'
 import UserAddressForm from '../../components/UserAddressForm'
 import { submitForm } from './actions'
 
-const mapStateToProps = () => {
-  return {}
+const mapStateToProps = ({ user }) => {
+  return {
+    httpError: user.error,
+  }
 }
 
 const mapDispatchToProps = dispatch => {

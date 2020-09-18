@@ -19,8 +19,9 @@ export default (submitCallback, validateCallback) => {
   }
 
   useEffect(() => {
-    if (!Object.keys(errors).length && isSubmitting) {
-      console.log('running')
+    const hasErrors = Object.keys(errors).length
+    console.log(hasErrors)
+    if (!hasErrors && isSubmitting) {
       submitCallback(formData)
     }
   }, [errors, isSubmitting])
