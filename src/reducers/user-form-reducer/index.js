@@ -1,8 +1,4 @@
-import {
-  SUBMIT_FORM_REQUEST,
-  SUBMIT_FORM_SUCCESS,
-  SUBMIT_FORM_LOCATION_ERROR,
-} from '../containers/UserFormContainer/actions'
+import { constants } from '../../containers/UserFormContainer/actions'
 
 const initialState = {
   loading: false,
@@ -11,14 +7,14 @@ const initialState = {
   user: {},
 }
 
-const locationInputReducer = (state = initialState, action) => {
+const userFormReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SUBMIT_FORM_REQUEST:
+    case constants.SUBMIT_FORM_REQUEST:
       return {
         ...state,
         loading: true,
       }
-    case SUBMIT_FORM_SUCCESS:
+    case constants.SUBMIT_FORM_SUCCESS:
       return {
         ...state,
         user: { ...action.formData },
@@ -26,7 +22,7 @@ const locationInputReducer = (state = initialState, action) => {
         loading: false,
         error: null,
       }
-    case SUBMIT_FORM_LOCATION_ERROR:
+    case constants.SUBMIT_FORM_LOCATION_ERROR:
       return {
         ...state,
         error: action.error,
@@ -37,4 +33,4 @@ const locationInputReducer = (state = initialState, action) => {
   }
 }
 
-export default locationInputReducer
+export default userFormReducer
