@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import TextInput from '../formComponents/TextInput'
+import TextInput from '../formComponents/SelectDropdown/TextInput'
 import useForm from '../../hooks/useForm'
 import { formAttributes } from './formAttributes'
 
