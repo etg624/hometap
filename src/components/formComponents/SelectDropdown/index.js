@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import FormField from '../FormField'
+
 const SelectDropdown = ({ options, onChange, attributes, error }) => {
   const { id, name, value, placeholder } = attributes
+
   return (
-    <div className={error ? 'form-field form-field--error' : 'form-field'}>
-      {attributes.label && <label>{attributes.label}</label>}
+    <FormField attributes={attributes} error={error}>
       <select onChange={onChange} id={id} name={name} value={value}>
         <option value="" {...(value ? '' : 'selected')} style={{ color: '#d8d8d8' }}>
           {placeholder}
@@ -16,8 +18,7 @@ const SelectDropdown = ({ options, onChange, attributes, error }) => {
           </option>
         ))}
       </select>
-      {error && <label className="form-field--error__label">{error}</label>}
-    </div>
+    </FormField>
   )
 }
 

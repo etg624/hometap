@@ -1,14 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
+import FormField from '../FormField'
+
 const TextInput = ({ inputAttributes, onChange, error, limit }) => {
   const { id, value, name, label, placeholder } = inputAttributes
   return (
-    <div className={error ? 'form-field form-field--error' : 'form-field'}>
-      {label && (
-        <label className="form-field__label" htmlFor={id}>
-          {label}
-        </label>
-      )}
+    <FormField attributes={inputAttributes} label={label}>
       <input
         className="form-field__input"
         maxLength={limit}
@@ -19,12 +17,7 @@ const TextInput = ({ inputAttributes, onChange, error, limit }) => {
         name={name}
         onChange={onChange}
       />
-      {error && (
-        <label className="form-field--error__label" htmlFor={id}>
-          {error}
-        </label>
-      )}
-    </div>
+    </FormField>
   )
 }
 
