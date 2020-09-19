@@ -55,6 +55,7 @@ export const formAttributes = formData => {
         name: 'state',
         value: formData.state,
         placeholder: 'Select a state',
+        label: 'State',
       },
       options: [
         { value: 'AK', text: 'Alaska' },
@@ -120,6 +121,7 @@ export const formAttributes = formData => {
         name: 'product',
         value: formData.product,
         placeholder: 'Select a product',
+        label: 'Product',
       },
       options: [
         { value: 'product-a', text: 'Product A' },

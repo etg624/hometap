@@ -7,6 +7,7 @@ const mapStateToProps = ({ userState }) => {
   return {
     httpError: userState.error,
     hasSubmittedForm: userState.hasSubmittedForm,
+    loading: userState.loading,
   }
 }
 

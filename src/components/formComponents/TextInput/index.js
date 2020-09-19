@@ -3,9 +3,14 @@ import PropTypes from 'prop-types'
 const TextInput = ({ inputAttributes, onChange, error, limit }) => {
   const { id, value, name, label, placeholder } = inputAttributes
   return (
-    <div>
-      {label && <label htmlFor={id}>{label}</label>}
+    <div className={error ? 'form-field form-field--error' : 'form-field'}>
+      {label && (
+        <label className="form-field__label" htmlFor={id}>
+          {label}
+        </label>
+      )}
       <input
+        className="form-field__input"
         maxLength={limit}
         type="text"
         placeholder={placeholder}
@@ -14,7 +19,11 @@ const TextInput = ({ inputAttributes, onChange, error, limit }) => {
         name={name}
         onChange={onChange}
       />
-      {error && <label htmlFor={id}>{error}</label>}
+      {error && (
+        <label className="form-field--error__label" htmlFor={id}>
+          {error}
+        </label>
+      )}
     </div>
   )
 }

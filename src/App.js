@@ -7,10 +7,12 @@ import './App.css'
 const App = () => {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/" component={UserFormContainer} />
-        <Route exact path="/user" component={UserProfileContainer} />
-      </Switch>
+      <div className="app">
+        <Switch>
+          <Route exact path="/" component={UserFormContainer} />
+          <Route exact path="/user" component={UserProfileContainer} />
+        </Switch>
+      </div>
     </Router>
   )
 }
