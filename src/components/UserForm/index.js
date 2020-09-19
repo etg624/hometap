@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import TextInput from '../formComponents/TextInput'
 import useForm from '../../hooks/useForm'
@@ -25,9 +25,13 @@ const UserForm = ({ submitForm, httpError, hasSubmittedForm }) => {
     email,
     address,
   } = formAttributes(formData)
-  if (hasSubmittedForm) {
-    history.push('/user')
-  }
+
+  useEffect(() => {
+    if (hasSubmittedForm) {
+      history.push('/user')
+    }
+  }, [hasSubmittedForm])
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
