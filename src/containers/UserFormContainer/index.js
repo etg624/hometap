@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import UserForm from '../../components/UserForm'
-import { submitForm } from './actions'
+import { submitForm } from '../../actions/user-form-actions'
 
 const mapStateToProps = ({ userState }) => {
   return {

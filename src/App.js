@@ -4,11 +4,14 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import UserFormContainer from './containers/UserFormContainer'
 import UserOrderContainer from './containers/UserOrderContainer'
 import Header from './components/Header'
+import ScrollToTop from './components/ScrollToTop'
 import './App.css'
+
 const App = () => {
   return (
     <Router>
       <Header />
+      <ScrollToTop />
       <main className="app">
         <Switch>
           <Route exact path="/" component={UserFormContainer} />

@@ -20,6 +20,7 @@
   --grey: #eeeeee;
   --dark-grey: #d8d8d8;
   --white: #fbfbfa;
+  --main-header-height: 75px;
 }
 
 body,
@@ -44,7 +45,7 @@ h6 {
 .app {
   min-height: 100vh;
   padding: 1rem;
-  margin-top: 3rem;
+  padding-top: 0;
 }
 
 /* ======= FORM ELEMENTS OVERRIDES ======= */

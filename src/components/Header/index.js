@@ -3,11 +3,14 @@ import logo from '../../assets/hometap-logo.svg'
 import './Header.css'
 const Header = () => {
   return (
-    <header class="main-header">
-      <figure>
-        <img className="main-header__logo" src={logo} alt="Hometap Logo" />
-      </figure>
-    </header>
+    <>
+      <header class="main-header">
+        <figure>
+          <img className="main-header__logo" src={logo} alt="Hometap Logo" />
+        </figure>
+      </header>
+      <div className="header-spacing"></div>
+    </>
   )
 }
 

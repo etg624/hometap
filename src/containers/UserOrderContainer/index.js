@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { actionCreators } from '../UserFormContainer/actions'
+import { actionCreators } from '../../actions/user-form-actions'
 
 import UserOrder from '../../components/UserOrder'
 
