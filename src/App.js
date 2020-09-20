@@ -10,8 +10,8 @@ import './App.css'
 const App = () => {
   return (
     <Router>
-      <Header />
       <ScrollToTop />
+      <Header />
       <main className="app">
         <Switch>
           <Route exact path="/" component={UserFormContainer} />
