@@ -1,4 +1,4 @@
-import { envVars } from '../../../config'
+import { envVars } from '../config'
 
 const SUBMIT_FORM_REQUEST = 'SUBMIT_FORM_REQUEST'
 const SUBMIT_FORM_SUCCESS = 'SUBMIT_FORM_SUCCESS'
@@ -22,9 +22,9 @@ export const actionCreators = {
 export const submitForm = ({ city, state, zip, address, ...rest }) => async dispatch => {
   const { locationValidationBaseUrl, locationApiKey } = envVars
   try {
+    dispatch(actionCreators.submitFormRequest())
     const fullAddressURL = `${locationValidationBaseUrl}&q=${address}+${city}+${state}+${zip}&apiKey=${locationApiKey}`
     const zipCodeURL = `${locationValidationBaseUrl}&q=${zip}&apiKey=${locationApiKey}`
-    dispatch(actionCreators.submitFormRequest())
     const [fullAddressRes, zipRes] = await Promise.all([fetch(fullAddressURL), fetch(zipCodeURL)])
     const { items: fullAddressData } = await fullAddressRes.json()
     const { items: zipData } = await zipRes.json()

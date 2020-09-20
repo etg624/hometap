@@ -4,6 +4,10 @@
   margin-bottom: 1.25em;
 }
 
+.form-field.form-field--error {
+  margin-bottom: 0;
+}
+
 .form-field--error input,
 .form-field--error select {
   border: 1px solid var(--red);

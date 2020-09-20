@@ -44,6 +44,7 @@ h6 {
 .app {
   min-height: 100vh;
   padding: 1rem;
+  margin-top: 3rem;
 }
 
 /* ======= FORM ELEMENTS OVERRIDES ======= */
@@ -79,4 +80,10 @@ select:focus {
 label {
   font-size: 0.75rem;
   margin-bottom: 0.5em;
+}
+
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 16px;
+  }
 }

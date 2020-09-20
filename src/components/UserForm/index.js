@@ -16,12 +16,15 @@ import './UserForm.css'
 const UserForm = ({ submitForm, userState }) => {
   const { error: httpError, hasSubmittedForm, loading, step } = userState
 
-  const { formData, handleFormInputChange, handleSubmit, errors, setFormData } = useForm(
-    submitForm,
-    validateUserDataForm
-  )
+  const {
+    formData,
+    handleFormInputChange,
+    handleSubmit,
+    errors,
+    setFormData,
+    setIsSubmitting,
+  } = useForm(submitForm, validateUserDataForm)
 
-  const history = useHistory()
   const {
     firstName,
     lastName,
@@ -34,11 +37,18 @@ const UserForm = ({ submitForm, userState }) => {
     address,
   } = formAttributes(formData)
 
+  const history = useHistory()
   useEffect(() => {
     if (hasSubmittedForm && step === 2) {
       history.push('/user')
     }
   }, [hasSubmittedForm, history, step])
+
+  useEffect(() => {
+    if (httpError) {
+      setIsSubmitting(false)
+    }
+  }, [httpError, setIsSubmitting])
 
   return (
     <div className="user-form-container">

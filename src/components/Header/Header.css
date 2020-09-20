@@ -1,0 +1,23 @@
+.main-header {
+  position: fixed;
+  z-index: 2;
+  border-bottom: 1px solid var(--grey);
+  width: 100%;
+  background: #fff;
+  top: 0;
+  padding: 1rem;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.main-header__logo {
+  width: 160px;
+  height: 44px;
+}
+
+@media screen and (min-width: 767px) {
+  .main-header {
+    padding: 1rem 4.6rem;
+  }
+}

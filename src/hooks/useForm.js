@@ -8,7 +8,10 @@ export default (submitCallback, validateCallback) => {
     const {
       target: { name, value },
     } = e
-
+    const hasErrors = Object.keys(errors).length
+    if (hasErrors) {
+      setErrors({ ...errors, [name]: null })
+    }
     setFormData({ ...formData, [name]: value })
   }
 
@@ -32,5 +35,6 @@ export default (submitCallback, validateCallback) => {
     errors,
     setFormData,
     setErrors,
+    setIsSubmitting,
   }
 }
