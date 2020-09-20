@@ -29,7 +29,7 @@ const FormField = ({ attributes, error, children, isRequired }) => {
 }
 
 FormField.propTypes = {
-  inputAttributes: PropTypes.shape({
+  attributes: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     value: PropTypes.string,

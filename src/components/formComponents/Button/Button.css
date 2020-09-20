@@ -16,8 +16,9 @@
   background: var(--dark-grey);
 }
 
-.form-button--is-loading {
-  background: rgba(54, 108, 237, 0.8);
+.form-button--is-loading,
+.form-button:hover {
+  background: var(--light-blue);
 }
 
 .form-button__loading-spinner {

@@ -17,4 +17,6 @@
 .form-field__label--is-required::after {
   content: '*';
   color: var(--blue);
+  font-size: 0.75rem;
+  margin-left: 0.25em;
 }

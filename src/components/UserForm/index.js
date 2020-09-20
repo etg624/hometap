@@ -35,7 +35,7 @@ const UserForm = ({ submitForm, httpError, hasSubmittedForm, loading }) => {
 
   return (
     <div className="user-form">
-      <header class="user-form__heading">
+      <header className="user-form__heading">
         <h1>
           Choosing a product. <br /> As easy as your ABS's.
         </h1>
@@ -101,11 +101,18 @@ const UserForm = ({ submitForm, httpError, hasSubmittedForm, loading }) => {
           onChange={handleFormInputChange}
           attributes={products.attrs}
           options={products.options}
-          label="Product"
+          error={errors[products.attrs.id]}
           isRequired
         />
         {httpError && <p className="form--http-error">{httpError}</p>}
-        <Button loading={loading} text="Submit" type="submit" maxWidth="50" />
+        <Button
+          loading={loading}
+          text="Submit"
+          type="submit"
+          maxWidth="50"
+          modifier="large"
+          disabled={!Object.keys(formData).length}
+        />
       </form>
     </div>
   )

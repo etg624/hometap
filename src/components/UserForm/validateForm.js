@@ -10,6 +10,7 @@ const buildRequiredErrors = (errors, formData, requiredFieldAndMessage) => {
 
 const validateUserDataForm = formData => {
   const errors = {}
+  console.log(formData)
   const requiredFieldsWithFormattedMessages = [
     ['firstName', 'First Name is required'],
     ['lastName', 'Last Name is Required'],
@@ -18,6 +19,7 @@ const validateUserDataForm = formData => {
     ['city', 'City is Required'],
     ['state', 'State is required'],
     ['zip', 'Zip Code is required'],
+    ['product', 'Please select a product'],
   ]
 
   for (const requiredField of requiredFieldsWithFormattedMessages) {
