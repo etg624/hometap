@@ -2,7 +2,7 @@
   background: var(--blue);
   color: var(--white);
   border: 0;
-  border-radius: var(--input-border-radius);
+  border-radius: var(--border-radius-standard);
   min-height: 40px;
   display: flex;
   align-items: center;

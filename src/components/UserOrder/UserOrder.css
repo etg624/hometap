@@ -1,0 +1,12 @@
+.user-order {
+  width: max-content;
+  border: 1px solid var(--grey);
+  border-radius: var(--border-radius-standard);
+  padding: 0.75em 2em;
+  margin: 0 auto;
+}
+
+.user-order__heading,
+.user-order__delivery-details {
+  margin-bottom: 2rem;
+}

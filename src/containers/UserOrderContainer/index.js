@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
 
-import UserProfile from '../../components/UserProfile'
+import UserOrder from '../../components/UserOrder'
 
 const mapStateToProps = ({ userState }) => {
   return { userState }
 }
 
-export default connect(mapStateToProps)(UserProfile)
+export default connect(mapStateToProps)(UserOrder)

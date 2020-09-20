@@ -11,7 +11,7 @@
   --heading-font-family: 'PT-Serif';
   --base-font-color: #152033;
   --input-padding: 0.375rem 0.75rem;
-  --input-border-radius: 0.25rem;
+  --border-radius-standard: 0.25rem;
   --form-row-spacing: 1.25em;
   --blue: rgb(54, 108, 237);
   --light-blue: rgba(54, 108, 237, 0.8);
@@ -59,7 +59,7 @@ input,
 select,
 button {
   padding: var(--input-padding);
-  border-radius: var(--input-border-radius);
+  border-radius: var(--border-radius-standard);
   border: solid 1px var(--grey);
   font-family: var(--body-font-family);
   font-size: 18px;

@@ -1,9 +1,9 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-import './UserProfile.css'
+import './UserOrder.css'
 
-const UserProfile = ({ userState }) => {
+const UserOrder = ({ userState }) => {
   const productMap = {
     'product-a': 'Product A',
     'product-b': 'Product B',
@@ -28,13 +28,13 @@ const UserProfile = ({ userState }) => {
     zip: '91723',
   }
   return (
-    <div class="user-order-data">
-      <header>
+    <div class="user-order">
+      <header class="user-order__heading">
         <h2>Hi {firstName}</h2>
         <p>Thanks for filling that out!</p>
         <p>Please make sure your order is correct</p>
       </header>
-      <div>
+      <div class="user-order__delivery-details">
         <h4>Deliver To</h4>
         <p>
           {firstName} {lastName}
@@ -44,7 +44,7 @@ const UserProfile = ({ userState }) => {
         </p>
         <p>{phoneNumber && phoneNumber}</p>
       </div>
-      <div>
+      <div className="user-order__order-details">
         <h4>Order Details</h4>
         <p>You Chose {product}</p>
       </div>
@@ -52,4 +52,4 @@ const UserProfile = ({ userState }) => {
   )
 }
 
-export default UserProfile
+export default UserOrder
