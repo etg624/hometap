@@ -20,27 +20,27 @@ export const submitForm = ({ city, state, zip, address, ...rest }) => async disp
   dispatch(actionCreators.submitFormRequest())
   const { locationValidationBaseUrl, locationApiKey } = envVars
   try {
-    const [fullAddressRes, zipRes] = await Promise.all([
-      fetch(
-        `${locationValidationBaseUrl}&q=${address}+${city}+${state}+${zip}&apiKey=${locationApiKey}`
-      ),
-      fetch(`${locationValidationBaseUrl}&q=${zip}&apiKey=${locationApiKey}`),
-    ])
-    const { items: fullAddressData } = await fullAddressRes.json()
-    const { items: zipData } = await zipRes.json()
-    if (!fullAddressData.length) {
-      throw new Error('Could not find that address')
-    }
+    // const [fullAddressRes, zipRes] = await Promise.all([
+    //   fetch(
+    //     `${locationValidationBaseUrl}&q=${address}+${city}+${state}+${zip}&apiKey=${locationApiKey}`
+    //   ),
+    //   fetch(`${locationValidationBaseUrl}&q=${zip}&apiKey=${locationApiKey}`),
+    // ])
+    // const { items: fullAddressData } = await fullAddressRes.json()
+    // const { items: zipData } = await zipRes.json()
+    // if (!fullAddressData.length) {
+    //   throw new Error('Could not find that address')
+    // }
 
-    if (!zipData.length) {
-      throw new Error('Are you sure you entered the correct zip code?')
-    }
+    // if (!zipData.length) {
+    //   throw new Error('Are you sure you entered the correct zip code?')
+    // }
 
-    const formattedFullAddressZip = fullAddressData[0].address.postalCode.split('-')[0]
-    const zipDataZipCode = zipData[0].address.postalCode
-    if (formattedFullAddressZip !== zipDataZipCode) {
-      throw new Error('That location is not within this zip code')
-    }
+    // const formattedFullAddressZip = fullAddressData[0].address.postalCode.split('-')[0]
+    // const zipDataZipCode = zipData[0].address.postalCode
+    // if (formattedFullAddressZip !== zipDataZipCode) {
+    //   throw new Error('That location is not within this zip code')
+    // }
     return dispatch(actionCreators.submitFormSuccess({ city, state, zip, address, ...rest }))
   } catch (error) {
     dispatch(actionCreators.submitFormLocationError(error.message))

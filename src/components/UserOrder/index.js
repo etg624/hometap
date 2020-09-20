@@ -9,23 +9,12 @@ const UserOrder = ({ userState }) => {
     'product-b': 'Product B',
     'product-c': 'Product C',
   }
-  // const {
-  //   user: { firstName, lastName, phoneNumber, email, product, address, city, state, zip },
-  // } = userState
+  const {
+    user: { firstName, lastName, phoneNumber, email, product, address, city, state, zip },
+  } = userState
   const history = useHistory()
-  // if (!userState.hasSubmittedForm) {
-  // history.push('/')
-  // }
-  const { firstName, lastName, phoneNumber, email, product, address, city, state, zip } = {
-    firstName: 'Evan',
-    lastName: 'Guirino',
-    phoneNumber: '(626)257-0967',
-    email: 'etg624@gmail.com',
-    product: 'Product A',
-    address: '612 E Orangewood DR',
-    city: 'Covina',
-    state: 'CA',
-    zip: '91723',
+  if (!userState.hasSubmittedForm) {
+    history.push('/')
   }
   return (
     <div class="user-order">

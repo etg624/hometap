@@ -1,19 +1,22 @@
 import React, { useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+
+import useForm from '../../hooks/useForm'
+
+import { formAttributes } from './formAttributes'
+import validateUserDataForm from './validateForm'
 
 import TextInput from '../formComponents/TextInput'
-import useForm from '../../hooks/useForm'
-import { formAttributes } from './formAttributes'
-
-import validateUserDataForm from './validateForm'
 import SelectDropdown from '../formComponents/SelectDropdown'
-import { useHistory } from 'react-router-dom'
 import Button from '../formComponents/Button'
+import MultiSelect from '../formComponents/MultiSelect'
 
 const UserForm = ({ submitForm, httpError, hasSubmittedForm, loading }) => {
-  const { formData, handleFormInputChange, handleSubmit, errors } = useForm(
+  const { formData, handleFormInputChange, handleSubmit, errors, setFormData } = useForm(
     submitForm,
     validateUserDataForm
   )
+
   const history = useHistory()
   const {
     firstName,
@@ -28,11 +31,10 @@ const UserForm = ({ submitForm, httpError, hasSubmittedForm, loading }) => {
   } = formAttributes(formData)
 
   useEffect(() => {
-    if (formData) {
+    if (hasSubmittedForm) {
       history.push('/user')
     }
-  }, [formData, history])
-
+  }, [hasSubmittedForm, history, formData])
   return (
     <div className="user-form">
       <header className="user-form__heading">
@@ -97,11 +99,12 @@ const UserForm = ({ submitForm, httpError, hasSubmittedForm, loading }) => {
             isRequired
           />
         </div>
-        <SelectDropdown
-          onChange={handleFormInputChange}
+        <MultiSelect
           attributes={products.attrs}
           options={products.options}
           error={errors[products.attrs.id]}
+          setFormData={setFormData}
+          formData={formData}
           isRequired
         />
         {httpError && <p className="form--http-error">{httpError}</p>}

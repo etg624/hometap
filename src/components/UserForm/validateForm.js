@@ -2,7 +2,7 @@ const buildRequiredErrors = (errors, formData, requiredFieldAndMessage) => {
   const field = requiredFieldAndMessage[0]
   const message = requiredFieldAndMessage[1]
   const requiredFieldValue = formData[field]
-  if (!requiredFieldValue) {
+  if (!requiredFieldValue || !requiredFieldValue.length) {
     errors[field] = message
   }
   return errors
@@ -10,7 +10,6 @@ const buildRequiredErrors = (errors, formData, requiredFieldAndMessage) => {
 
 const validateUserDataForm = formData => {
   const errors = {}
-  console.log(formData)
   const requiredFieldsWithFormattedMessages = [
     ['firstName', 'First Name is required'],
     ['lastName', 'Last Name is Required'],

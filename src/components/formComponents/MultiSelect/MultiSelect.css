@@ -1,0 +1,31 @@
+.multi-selects {
+  display: flex;
+}
+
+.multi-selects__select {
+  position: relative;
+  margin-left: 0.2em;
+}
+.multi-selects__select label {
+  padding: 1em 2em;
+  border-radius: var(--border-radius-standard);
+  color: var(--black);
+  background: var(--grey);
+  font-size: 1rem;
+  display: block;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.multi-selects__select:first-child {
+  margin-left: 0;
+}
+
+.multi-selects__select input:checked + label {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.multi-selects__select input {
+  opacity: 0;
+}
