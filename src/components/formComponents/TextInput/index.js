@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import FormField from '../FormField'
 
-const TextInput = ({ inputAttributes, onChange, error, limit }) => {
-  const { id, value, name, label, placeholder } = inputAttributes
+const TextInput = ({ inputAttributes, onChange, error, limit, isRequired }) => {
+  const { id, value, name, placeholder } = inputAttributes
   return (
-    <FormField attributes={inputAttributes} label={label}>
+    <FormField attributes={inputAttributes} error={error} isRequired={isRequired}>
       <input
         className="form-field__input"
         maxLength={limit}

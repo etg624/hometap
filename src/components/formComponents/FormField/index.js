@@ -1,12 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const FormField = ({ attributes, error, children }) => {
+import './FormField.css'
+
+const FormField = ({ attributes, error, children, isRequired }) => {
   const { id, label } = attributes
+
   return (
     <div className={error ? 'form-field form-field--error' : 'form-field'}>
       {label && (
-        <label className="form-field__label" htmlFor={id}>
+        <label
+          className={`${
+            isRequired ? 'form-field__label form-field__label--is-required' : 'form-field__label'
+          }`}
+          htmlFor={id}
+        >
           {label}
         </label>
       )}

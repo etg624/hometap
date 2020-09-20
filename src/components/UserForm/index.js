@@ -7,6 +7,7 @@ import { formAttributes } from './formAttributes'
 import validateUserDataForm from './validateForm'
 import SelectDropdown from '../formComponents/SelectDropdown'
 import { useHistory } from 'react-router-dom'
+import Button from '../formComponents/Button'
 
 const UserForm = ({ submitForm, httpError, hasSubmittedForm, loading }) => {
   const { formData, handleFormInputChange, handleSubmit, errors } = useForm(
@@ -33,7 +34,14 @@ const UserForm = ({ submitForm, httpError, hasSubmittedForm, loading }) => {
   }, [hasSubmittedForm])
 
   return (
-    <div className="user-form-container">
+    <div className="user-form">
+      <header class="user-form__heading">
+        <h1>
+          Choosing a product. <br /> As easy as your ABS's.
+        </h1>
+        <p>You're one step closer to getting your product. We just need a few details first.</p>
+      </header>
+
       <form onSubmit={handleSubmit} className="form">
         <div className="form__desktop-row">
           <TextInput
@@ -94,13 +102,10 @@ const UserForm = ({ submitForm, httpError, hasSubmittedForm, loading }) => {
           attributes={products.attrs}
           options={products.options}
           label="Product"
+          isRequired
         />
-        {httpError && <p className="form-field--http-error">{httpError}</p>}
-        <input
-          type="submit"
-          value={loading ? 'Loading' : 'Submit'}
-          disabled={!Object.keys(formData).length}
-        />
+        {httpError && <p className="form--http-error">{httpError}</p>}
+        <Button loading={loading} text="Submit" type="submit" maxWidth="50" />
       </form>
     </div>
   )

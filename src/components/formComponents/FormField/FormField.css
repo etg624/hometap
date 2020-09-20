@@ -1,0 +1,20 @@
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25em;
+}
+
+.form-field--error input,
+.form-field--error select {
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+.form-field--error__label {
+  color: var(--red);
+}
+
+.form-field__label--is-required::after {
+  content: '*';
+  color: var(--blue);
+}
