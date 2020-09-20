@@ -10,7 +10,7 @@ const UserOrder = ({ userState }) => {
     'product-c': 'Product C',
   }
   const {
-    user: { firstName, lastName, phoneNumber, email, product, address, city, state, zip },
+    user: { firstName, lastName, phoneNumber, email, products, address, city, state, zip },
   } = userState
   const history = useHistory()
   if (!userState.hasSubmittedForm) {
@@ -33,10 +33,10 @@ const UserOrder = ({ userState }) => {
         </p>
         <p>{phoneNumber && phoneNumber}</p>
       </div>
-      <div className="user-order__order-details">
-        <h4>Order Details</h4>
-        <p>You Chose {product}</p>
-      </div>
+      <ul className="user-order__order-details">
+        <h4>Your Selected Products</h4>
+        {products && products.map(product => <li>{productMap[product]}</li>)}
+      </ul>
     </div>
   )
 }

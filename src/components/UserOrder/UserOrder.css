@@ -10,3 +10,20 @@
 .user-order__delivery-details {
   margin-bottom: 2rem;
 }
+
+.user-order__order-details {
+  list-style: none;
+}
+
+.user-order__order-details li {
+  list-style-position: inside;
+  display: flex;
+  align-items: center;
+}
+.user-order__order-details li::before {
+  content: '\2022';
+  color: var(--blue);
+  font-size: 10px;
+  position: relative;
+  margin-right: 0.5em;
+}
