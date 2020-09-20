@@ -23,7 +23,7 @@ export default (submitCallback, validateCallback) => {
     if (!hasErrors && isSubmitting) {
       submitCallback(formData)
     }
-  }, [errors, isSubmitting])
+  }, [errors, isSubmitting, formData, submitCallback])
 
   return {
     handleFormInputChange,

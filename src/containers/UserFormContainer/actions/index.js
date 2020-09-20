@@ -3,7 +3,6 @@ import { envVars } from '../../../config'
 const SUBMIT_FORM_REQUEST = 'SUBMIT_FORM_REQUEST'
 const SUBMIT_FORM_SUCCESS = 'SUBMIT_FORM_SUCCESS'
 const SUBMIT_FORM_LOCATION_ERROR = 'SUBMIT_FORM_LOCATION_ERROR'
-const SET_MULTIPLE_LOCATIONS_FOUND = 'SET_MULTIPLE_LOCATIONS_FOUND'
 
 export const constants = {
   SUBMIT_FORM_REQUEST,
@@ -15,10 +14,6 @@ export const actionCreators = {
   submitFormRequest: () => ({ type: SUBMIT_FORM_REQUEST }),
   submitFormSuccess: formData => ({ type: SUBMIT_FORM_SUCCESS, formData }),
   submitFormLocationError: error => ({ type: SUBMIT_FORM_LOCATION_ERROR, error }),
-  setMultipleLocationsFound: locations => ({
-    type: SET_MULTIPLE_LOCATIONS_FOUND,
-    locations,
-  }),
 }
 
 export const submitForm = ({ city, state, zip, address, ...rest }) => async dispatch => {

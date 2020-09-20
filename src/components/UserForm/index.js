@@ -28,10 +28,10 @@ const UserForm = ({ submitForm, httpError, hasSubmittedForm, loading }) => {
   } = formAttributes(formData)
 
   useEffect(() => {
-    if (hasSubmittedForm) {
+    if (formData) {
       history.push('/user')
     }
-  }, [hasSubmittedForm])
+  }, [formData, history])
 
   return (
     <div className="user-form">
