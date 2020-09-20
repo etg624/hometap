@@ -117,11 +117,10 @@ export const formAttributes = formData => {
     },
     products: {
       attrs: {
-        id: 'product',
-        name: 'product',
-        value: formData.product,
-        placeholder: 'Select a product',
-        label: 'Product',
+        id: 'products',
+        name: 'products',
+        value: formData.products,
+        label: 'Select a product',
       },
       options: [
         { value: 'product-a', text: 'Product A' },

@@ -5,6 +5,7 @@ const buildRequiredErrors = (errors, formData, requiredFieldAndMessage) => {
   if (!requiredFieldValue || !requiredFieldValue.length) {
     errors[field] = message
   }
+
   return errors
 }
 
@@ -18,7 +19,7 @@ const validateUserDataForm = formData => {
     ['city', 'City is Required'],
     ['state', 'State is required'],
     ['zip', 'Zip Code is required'],
-    ['product', 'Please select a product'],
+    ['products', 'Please select a product'],
   ]
 
   for (const requiredField of requiredFieldsWithFormattedMessages) {

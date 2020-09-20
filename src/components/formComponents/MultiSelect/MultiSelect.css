@@ -27,5 +27,5 @@
 }
 
 .multi-selects__select input {
-  opacity: 0;
+  display: none;
 }

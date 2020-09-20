@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import FormField from '../FormField'
 import './MultiSelect.css'
 
-const MultiSelect = ({ options, attributes, setFormData, formData }) => {
+const MultiSelect = ({ options, attributes, setFormData, formData, error, isRequired }) => {
   const [{ checkedItems }] = useState({ checkedItems: new Map() })
   const handleCheck = ({ target }) => {
     const { name, checked } = target
@@ -17,7 +17,7 @@ const MultiSelect = ({ options, attributes, setFormData, formData }) => {
     }
   }
   return (
-    <FormField attributes={attributes}>
+    <FormField attributes={attributes} error={error} isRequired={isRequired}>
       <figure className="multi-selects">
         {options.map(option => (
           <div className="multi-selects__select" key={option.value}>
