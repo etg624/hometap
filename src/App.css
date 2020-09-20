@@ -80,39 +80,3 @@ label {
   font-size: 0.75rem;
   margin-bottom: 0.5em;
 }
-
-.user-form {
-  max-width: 600px;
-  margin: 2em auto;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.user-form__heading {
-  margin-bottom: 2em;
-}
-
-.user-form__heading h1 {
-  margin-bottom: 0.75em;
-  line-height: 1.25em;
-}
-
-.form__desktop-row {
-  margin-left: calc(var(--form-row-spacing) * -1);
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.form__desktop-row .form-field {
-  flex: 1 1 40%;
-}
-
-.form__desktop-row .form-field {
-  margin-left: var(--form-row-spacing);
-}
-
-.form--http-error {
-  text-align: center;
-  color: var(--red);
-}

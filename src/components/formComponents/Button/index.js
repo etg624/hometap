@@ -1,7 +1,7 @@
 import React from 'react'
 import './Button.css'
 
-const Button = ({ disabled, type, loading, text, modifier }) => {
+const Button = ({ disabled, type = 'button', loading, text, modifier, onClick }) => {
   let classList = ''
   if (modifier) {
     classList += `form-button--${modifier}`
@@ -12,7 +12,12 @@ const Button = ({ disabled, type, loading, text, modifier }) => {
   }
 
   return (
-    <button className={`form-button ${classList}`} type={type} disabled={disabled || loading}>
+    <button
+      onClick={onClick}
+      className={`form-button ${classList}`}
+      type={type}
+      disabled={disabled || loading}
+    >
       {loading && <span className="form-button__loading-spinner"></span>}
       <span className="form-button__text">{loading ? 'Loading' : text}</span>
     </button>

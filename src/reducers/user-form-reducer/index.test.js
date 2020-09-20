@@ -4,6 +4,7 @@ describe('user form reducer', () => {
   const initialState = {
     loading: false,
     error: null,
+    step: 1,
     hasSubmittedForm: false,
     user: {},
   }

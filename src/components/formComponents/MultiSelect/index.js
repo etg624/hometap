@@ -23,7 +23,7 @@ const MultiSelect = ({ options, attributes, setFormData, formData, error, isRequ
           <div className="multi-selects__select" key={option.value}>
             <input
               type="checkbox"
-              checked={checkedItems.get(option.value)}
+              checked={checkedItems.get(option.value) || false}
               name={option.value}
               id={option.value}
               onChange={handleCheck}

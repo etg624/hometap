@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { actionCreators } from '../UserFormContainer/actions'
 
 import UserOrder from '../../components/UserOrder'
 
@@ -6,4 +7,12 @@ const mapStateToProps = ({ userState }) => {
   return { userState }
 }
 
-export default connect(mapStateToProps)(UserOrder)
+const mapDispatchToProps = dispatch => {
+  return {
+    setStep: step => {
+      dispatch(actionCreators.setStep(step))
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserOrder)

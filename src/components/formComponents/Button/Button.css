@@ -44,9 +44,3 @@
     transform: rotate(360deg);
   }
 }
-
-@media screen and (min-width: 767px) {
-  .form-button {
-    width: 50%;
-  }
-}

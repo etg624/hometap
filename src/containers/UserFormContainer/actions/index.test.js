@@ -40,6 +40,7 @@ describe('submitForm async action', () => {
     loading: false,
     error: null,
     hasSubmittedForm: false,
+    step: 1,
     user: {},
   })
   afterEach(() => {
@@ -57,6 +58,7 @@ describe('submitForm async action', () => {
     const expectedActions = [
       { type: constants.SUBMIT_FORM_REQUEST },
       { type: constants.SUBMIT_FORM_SUCCESS, formData },
+      { type: constants.SET_STEP, step: 2 },
     ]
 
     const store = mockStore({

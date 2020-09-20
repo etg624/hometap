@@ -4,6 +4,7 @@ const initialState = {
   loading: false,
   error: null,
   hasSubmittedForm: false,
+  step: 1,
   user: {},
 }
 
@@ -26,6 +27,12 @@ const userFormReducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.error,
+        loading: false,
+      }
+    case constants.SET_STEP:
+      return {
+        ...state,
+        step: action.step,
         loading: false,
       }
     default:

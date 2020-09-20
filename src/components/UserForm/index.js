@@ -11,7 +11,11 @@ import SelectDropdown from '../formComponents/SelectDropdown'
 import Button from '../formComponents/Button'
 import MultiSelect from '../formComponents/MultiSelect'
 
-const UserForm = ({ submitForm, httpError, hasSubmittedForm, loading }) => {
+import './UserForm.css'
+
+const UserForm = ({ submitForm, userState }) => {
+  const { error: httpError, hasSubmittedForm, loading, step } = userState
+
   const { formData, handleFormInputChange, handleSubmit, errors, setFormData } = useForm(
     submitForm,
     validateUserDataForm
@@ -31,12 +35,13 @@ const UserForm = ({ submitForm, httpError, hasSubmittedForm, loading }) => {
   } = formAttributes(formData)
 
   useEffect(() => {
-    if (hasSubmittedForm) {
+    if (hasSubmittedForm && step === 2) {
       history.push('/user')
     }
-  }, [hasSubmittedForm, history, formData])
+  }, [hasSubmittedForm, history, step])
+
   return (
-    <div className="user-form">
+    <div className="user-form-container">
       <header className="user-form__heading">
         <h1>
           Choosing a product. <br /> As easy as your ABS's.
