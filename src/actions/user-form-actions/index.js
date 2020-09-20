@@ -1,4 +1,4 @@
-import { envVars } from '../config'
+import { envVars } from '../../config'
 
 const SUBMIT_FORM_REQUEST = 'SUBMIT_FORM_REQUEST'
 const SUBMIT_FORM_SUCCESS = 'SUBMIT_FORM_SUCCESS'
@@ -41,8 +41,8 @@ export const submitForm = ({ city, state, zip, address, ...rest }) => async disp
     if (formattedFullAddressZip !== zipDataZipCode) {
       throw new Error('That location is not within this zip code')
     }
-    dispatch(actionCreators.setStep(2))
-    return dispatch(actionCreators.submitFormSuccess({ city, state, zip, address, ...rest }))
+    dispatch(actionCreators.submitFormSuccess({ city, state, zip, address, ...rest }))
+    return dispatch(actionCreators.setStep(2))
   } catch (error) {
     return dispatch(actionCreators.submitFormLocationError(error.message))
   }

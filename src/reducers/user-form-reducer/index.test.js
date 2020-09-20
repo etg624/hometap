@@ -41,4 +41,11 @@ describe('user form reducer', () => {
       error,
     })
   })
+
+  it('should set handle the SET_STEP action', () => {
+    expect(userFormReducer(initialState, { type: 'SET_STEP', step: 2 })).toEqual({
+      ...initialState,
+      step: 2,
+    })
+  })
 })

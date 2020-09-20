@@ -1,4 +1,4 @@
-import { constants } from '../../containers/UserFormContainer/actions'
+import { constants } from '../../actions/user-form-actions'
 
 const initialState = {
   loading: false,
@@ -21,7 +21,6 @@ const userFormReducer = (state = initialState, action) => {
         user: { ...action.formData },
         hasSubmittedForm: true,
         loading: false,
-        error: null,
       }
     case constants.SUBMIT_FORM_LOCATION_ERROR:
       return {
@@ -33,7 +32,6 @@ const userFormReducer = (state = initialState, action) => {
       return {
         ...state,
         step: action.step,
-        loading: false,
       }
     default:
       return state

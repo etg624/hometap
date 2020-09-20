@@ -31,6 +31,15 @@ describe('UserForm actions', () => {
     }
     expect(actionCreators.submitFormLocationError(error)).toEqual(expectedAction)
   })
+
+  it('should create a step action to step through the form', () => {
+    const step = 2
+    const expectedAction = {
+      type: constants.SET_STEP,
+      step,
+    }
+    expect(actionCreators.setStep(step)).toEqual(expectedAction)
+  })
 })
 
 describe('submitForm async action', () => {
