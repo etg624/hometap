@@ -36,7 +36,7 @@ export const submitForm = ({ city, state, zip, address, ...rest }) => async disp
     const { items: zipData } = await zipRes.json()
     const { items: stateData } = await stateRes.json()
     if (!fullAddressData.length) {
-      throw new Error('Could not find that address')
+      throw new Error('Are you sure you entered the right address?')
     }
 
     if (!zipData.length) {
@@ -48,7 +48,7 @@ export const submitForm = ({ city, state, zip, address, ...rest }) => async disp
     const zipDataZipCode = zipDataAddress.postalCode
     const stateDataAddress = stateData[0].address
     if (fullAddressDataAddress.state !== stateDataAddress.state) {
-      throw new Error('That address does not exist in that state')
+      throw new Error(`${address} does not exist state`)
     }
 
     if (formattedFullAddressZip !== zipDataZipCode) {
