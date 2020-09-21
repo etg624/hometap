@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import FormField from '../FormField'
+import PropTypes from 'prop-types'
 import './MultiSelect.css'
 
 const MultiSelect = ({ options, attributes, setFormData, formData, error, isRequired }) => {
@@ -34,6 +35,26 @@ const MultiSelect = ({ options, attributes, setFormData, formData, error, isRequ
       </figure>
     </FormField>
   )
+}
+
+MultiSelect.propTypes = {
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+    })
+  ),
+  error: PropTypes.string,
+  setFormData: PropTypes.func.isRequired,
+  formData: PropTypes.object.isRequired,
+  isRequired: PropTypes.bool,
+  attributes: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+    label: PropTypes.string,
+    placeholder: PropTypes.string,
+  }).isRequired,
 }
 
 export default MultiSelect

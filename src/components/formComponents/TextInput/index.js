@@ -32,6 +32,7 @@ TextInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   error: PropTypes.string,
   limit: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  isRequired: PropTypes.bool,
 }
 
 export default TextInput

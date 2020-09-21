@@ -124,7 +124,7 @@ const UserForm = ({ submitForm, userState }) => {
         />
         {httpError && <p className="form--http-error">{httpError}</p>}
         <Button
-          loading={loading}
+          isLoading={loading}
           text="Submit"
           type="submit"
           maxWidth="50"

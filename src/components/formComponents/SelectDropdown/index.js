@@ -30,6 +30,7 @@ SelectDropdown.propTypes = {
     value: PropTypes.string,
   }).isRequired,
   error: PropTypes.string,
+  isRequired: PropTypes.bool,
 }
 
 export default SelectDropdown

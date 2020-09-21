@@ -4,7 +4,7 @@ import './Header.css'
 const Header = () => {
   return (
     <>
-      <header class="main-header">
+      <header className="main-header">
         <figure>
           <img className="main-header__logo" src={logo} alt="Hometap Logo" />
         </figure>
