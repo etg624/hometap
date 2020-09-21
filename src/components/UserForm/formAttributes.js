@@ -37,14 +37,14 @@ export const formAttributes = formData => {
     },
     city: {
       id: 'city',
-      placeholder: 'i.e Los Angeles',
+      placeholder: 'i.e. Los Angeles',
       value: formData.city,
       name: 'city',
       label: 'City',
     },
     zip: {
       id: 'zip',
-      placeholder: 'i.e 90013',
+      placeholder: 'i.e. 90013',
       value: formData.zip,
       name: 'zip',
       label: 'Zip Code',
