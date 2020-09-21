@@ -1,5 +1,6 @@
 .user-order {
   width: max-content;
+  max-width: 100%;
   border: 1px solid var(--grey);
   border-radius: var(--border-radius-standard);
   padding: 0.75em 1em;

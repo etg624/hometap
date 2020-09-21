@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import FormField from '../FormField'
 
 const SelectDropdown = ({ options, onChange, attributes, error, isRequired }) => {
@@ -9,7 +8,9 @@ const SelectDropdown = ({ options, onChange, attributes, error, isRequired }) =>
   return (
     <FormField attributes={attributes} error={error} isRequired={isRequired}>
       <select onChange={onChange} id={id} name={name} value={value}>
-        <option value="">{placeholder}</option>
+        <option className="options-label" value="">
+          {placeholder}
+        </option>
         {options.map(option => (
           <option key={option.value} value={option.value}>
             {option.text}

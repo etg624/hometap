@@ -25,9 +25,15 @@ export const submitForm = ({ city, state, zip, address, ...rest }) => async disp
     dispatch(actionCreators.submitFormRequest())
     const fullAddressURL = `${locationValidationBaseUrl}&q=${address}+${city}+${state}+${zip}&apiKey=${locationApiKey}`
     const zipCodeURL = `${locationValidationBaseUrl}&q=${zip}&apiKey=${locationApiKey}`
-    const [fullAddressRes, zipRes] = await Promise.all([fetch(fullAddressURL), fetch(zipCodeURL)])
+    const stateURL = `${locationValidationBaseUrl}&q=${state}&apiKey=${locationApiKey}`
+    const [fullAddressRes, zipRes] = await Promise.all([
+      fetch(fullAddressURL),
+      fetch(zipCodeURL),
+      fetch(stateUrl),
+    ])
     const { items: fullAddressData } = await fullAddressRes.json()
     const { items: zipData } = await zipRes.json()
+    const { items: stateData } = await zipRes.json()
     if (!fullAddressData.length) {
       throw new Error('Could not find that address')
     }
