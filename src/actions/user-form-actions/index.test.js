@@ -91,7 +91,10 @@ describe('submitForm async action', () => {
       }
       const expectedActions = [
         { type: constants.SUBMIT_FORM_REQUEST },
-        { type: constants.SUBMIT_FORM_LOCATION_ERROR, error: 'Could not find that address' },
+        {
+          type: constants.SUBMIT_FORM_LOCATION_ERROR,
+          error: 'Are you sure you entered the right address?',
+        },
       ]
       return store.dispatch(submitForm(formData)).then(() => {
         expect(store.getActions()).toEqual(expectedActions)
