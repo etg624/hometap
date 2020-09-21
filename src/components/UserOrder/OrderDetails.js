@@ -23,7 +23,9 @@ const OrderDetails = ({ userDetails, handleGoBack, handleOrderAccept }) => {
       <header className="user-order__heading">
         <h2>Hi {firstName}</h2>
         <p>Thanks for filling that out!</p>
-        <p>Please make sure your order is correct</p>
+        <p>
+          Please make sure your order is <b>correct</b>
+        </p>
       </header>
       <div className="user-order__delivery-details">
         <h4>Deliver To</h4>

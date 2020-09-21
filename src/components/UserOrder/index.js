@@ -22,7 +22,7 @@ const UserOrder = ({ userState, setStep }) => {
 
   return hasAcceptedOrder ? (
     <OrderWrapper>
-      <p>Thanks {user.firstName} your order is being processed</p>
+      <p>Thanks {user.firstName} your order is being processed!</p>
     </OrderWrapper>
   ) : (
     <OrderWrapper>
