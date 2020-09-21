@@ -54,7 +54,7 @@ const UserForm = ({ submitForm, userState }) => {
     <div className="user-form-container">
       <header className="user-form__heading">
         <h1>
-          Choosing a product. <br /> As easy as your ABS's.
+          Choosing a product. <br /> As easy as your ABC's.
         </h1>
         <p>You're one step closer to getting your product. We just need a few details first.</p>
       </header>
