@@ -138,5 +138,23 @@ describe('submitForm async action', () => {
         expect(store.getActions()).toEqual(expectedActions)
       })
     })
+    it('Fails when the address input is not in the state input', () => {
+      const formData = {
+        city: 'Mountain View',
+        state: 'GA',
+        zip: '94043',
+        address: '1600 Amphitheatre Parkway',
+      }
+      const expectedActions = [
+        { type: constants.SUBMIT_FORM_REQUEST },
+        {
+          type: constants.SUBMIT_FORM_LOCATION_ERROR,
+          error: `${formData.address} does not exist state`,
+        },
+      ]
+      return store.dispatch(submitForm(formData)).then(() => {
+        expect(store.getActions()).toEqual(expectedActions)
+      })
+    })
   })
 })
