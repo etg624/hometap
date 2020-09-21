@@ -26,14 +26,15 @@ export const submitForm = ({ city, state, zip, address, ...rest }) => async disp
     const fullAddressURL = `${locationValidationBaseUrl}&q=${address}+${city}+${state}+${zip}&apiKey=${locationApiKey}`
     const zipCodeURL = `${locationValidationBaseUrl}&q=${zip}&apiKey=${locationApiKey}`
     const stateURL = `${locationValidationBaseUrl}&q=${state}&apiKey=${locationApiKey}`
-    const [fullAddressRes, zipRes] = await Promise.all([
+
+    const [fullAddressRes, zipRes, stateRes] = await Promise.all([
       fetch(fullAddressURL),
       fetch(zipCodeURL),
-      fetch(stateUrl),
+      fetch(stateURL),
     ])
     const { items: fullAddressData } = await fullAddressRes.json()
     const { items: zipData } = await zipRes.json()
-    const { items: stateData } = await zipRes.json()
+    const { items: stateData } = await stateRes.json()
     if (!fullAddressData.length) {
       throw new Error('Could not find that address')
     }
@@ -41,9 +42,15 @@ export const submitForm = ({ city, state, zip, address, ...rest }) => async disp
     if (!zipData.length) {
       throw new Error('Are you sure you entered the correct zip code?')
     }
+    const fullAddressDataAddress = fullAddressData[0].address
+    const formattedFullAddressZip = fullAddressDataAddress.postalCode.split('-')[0]
+    const zipDataAddress = zipData[0].address
+    const zipDataZipCode = zipDataAddress.postalCode
+    const stateDataAddress = stateData[0].address
+    if (fullAddressDataAddress.state !== stateDataAddress.state) {
+      throw new Error('That address does not exist in that state')
+    }
 
-    const formattedFullAddressZip = fullAddressData[0].address.postalCode.split('-')[0]
-    const zipDataZipCode = zipData[0].address.postalCode
     if (formattedFullAddressZip !== zipDataZipCode) {
       throw new Error('That location is not within this zip code')
     }

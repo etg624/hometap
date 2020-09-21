@@ -21,6 +21,7 @@ const userFormReducer = (state = initialState, action) => {
         user: { ...action.formData },
         hasSubmittedForm: true,
         loading: false,
+        error: false,
       }
     case constants.SUBMIT_FORM_LOCATION_ERROR:
       return {

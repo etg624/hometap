@@ -12,6 +12,7 @@ export default (submitCallback, validateCallback) => {
     if (hasErrors) {
       setErrors({ ...errors, [name]: null })
     }
+
     setFormData({ ...formData, [name]: value })
   }
 
