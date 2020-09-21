@@ -48,7 +48,7 @@ export const submitForm = ({ city, state, zip, address, ...rest }) => async disp
     const zipDataZipCode = zipDataAddress.postalCode
     const stateDataAddress = stateData[0].address
     if (fullAddressDataAddress.state !== stateDataAddress.state) {
-      throw new Error(`${address} does not exist state`)
+      throw new Error(`${address} does not exist in that state`)
     }
 
     if (formattedFullAddressZip !== zipDataZipCode) {

@@ -149,7 +149,7 @@ describe('submitForm async action', () => {
         { type: constants.SUBMIT_FORM_REQUEST },
         {
           type: constants.SUBMIT_FORM_LOCATION_ERROR,
-          error: `${formData.address} does not exist state`,
+          error: `${formData.address} does not exist in that state`,
         },
       ]
       return store.dispatch(submitForm(formData)).then(() => {
