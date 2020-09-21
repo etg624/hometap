@@ -6,6 +6,7 @@ import UserOrderContainer from './containers/UserOrderContainer'
 import Header from './components/Header'
 import ScrollToTop from './components/ScrollToTop'
 import './App.css'
+import NotFound from './components/NotFound'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={UserFormContainer} />
           <Route exact path="/user" component={UserOrderContainer} />
+          <NotFound />
         </Switch>
       </main>
     </Router>
